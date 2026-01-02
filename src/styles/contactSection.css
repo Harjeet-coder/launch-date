@@ -1,0 +1,116 @@
+.contact-section {
+  width: 100%;
+  padding: 8rem 6vw;
+  background: transparent;
+  color: #ffffff;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* ---------- LEFT ---------- */
+.contact-title {
+  font-size: clamp(2.6rem, 4vw, 3.4rem);
+  font-family: "Oxanium", sans-serif;
+  letter-spacing: 0.25em;
+  margin-bottom: 0.8rem;
+}
+
+.contact-title span {
+  /* Changed to Cyber Red */
+  color: #ff0033;
+}
+
+.contact-subtitle {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  margin-bottom: 3rem;
+}
+
+.contact-info .info-block {
+  margin-bottom: 2.5rem;
+}
+
+.contact-info h4 {
+  font-size: 1.2rem;
+  /* Changed to Cyber Red */
+  color: #ff0033;
+  margin-bottom: 0.6rem;
+  font-family: "Oxanium", sans-serif;
+}
+
+.contact-info p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-info span {
+  /* Changed to Cyber Red */
+  color: #ff0033;
+  margin-left: 0.4rem;
+}
+
+/* ---------- RIGHT FORM ---------- */
+.contact-form {
+  /* Darker background for red theme contrast */
+  background: rgba(15, 2, 2, 0.7); 
+  border-radius: 18px;
+  padding: 3rem;
+  backdrop-filter: blur(12px);
+  /* Changed shadow to Red glow */
+  box-shadow: 0 0 40px rgba(255, 0, 51, 0.1);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 1.6rem;
+  padding: 1rem 1.2rem;
+  background: rgba(0, 0, 0, 0.45);
+  /* Changed border to subtle red */
+  border: 1px solid rgba(255, 0, 51, 0.2);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  /* Changed focus colors to Cyber Red */
+  border-color: #ff0033;
+  box-shadow: 0 0 12px rgba(255, 0, 51, 0.3);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 1rem;
+  /* Changed button background to Cyber Red */
+  background: #ff0033;
+  color: #fff; /* Switched to white text for better contrast on red */
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.15em;
+  font-family: "Oxanium", sans-serif;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background: #cc0029;
+  transform: translateY(-2px);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}

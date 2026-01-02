@@ -1,0 +1,63 @@
+.intro-video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* GPU acceleration */
+  will-change: opacity, transform;
+  transform: translateZ(0);
+}
+
+.intro-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  /* Force hardware decode */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+
+  /* Prevent reflow */
+  pointer-events: none;
+}
+.intro-video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: black;
+  overflow: hidden;
+}
+
+.intro-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+
+  /* GPU acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+.intro-video-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: black;
+}
+
+/* ⚠️ DO NOT add transforms, filters, blur, scale */
+.intro-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+
+  /* Performance critical */
+  will-change: auto;
+  transform: none;
+  filter: none;
+}

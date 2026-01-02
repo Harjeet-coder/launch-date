@@ -1,0 +1,81 @@
+:root {
+  --black: #000;
+  --green: #00ff41;
+  --red: #ff003c;
+}
+
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--green);
+  font-family: "Courier New", monospace;
+}
+
+.neon-green {
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green);
+}
+
+.neon-red {
+  color: var(--red);
+  text-shadow: 0 0 10px var(--red);
+}
+
+.cursor {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* GLOBAL CONTAINER */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+/* Hide scrollbar but allow scrolling */
+
+.tech-worker-3d {
+  width: 100%;
+  height: 100%;
+}
+/* Ensure the Cyber Popup works on mobile */
+.cyber-popup-card {
+  width: 95vw; /* Almost full screen width */
+  max-width: 500px; /* But don't let it get huge on desktop */
+  margin: 0 auto;
+}
+
+/* Fluid spacing for all sections */
+section {
+  padding: clamp(4rem, 10vh, 10rem) 5%;
+}
+
+/* Stop horizontal scrolling (The "Golden Rule") */
+html, body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}

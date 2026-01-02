@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=JetBrains+Mono:wght@300&display=swap');
+
+/* 1. OVERLAY & LAYOUT */
+.cyber-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(4, 0, 0, 0.96);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  perspective: 1200px;
+}
+
+/* 2. MAIN CARD */
+.cyber-popup-card {
+  position: relative;
+  width: min(90vw, 680px);
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 0, 51, 0.3);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.15);
+  overflow: hidden;
+  animation: cardAppear 1s ease-out forwards, card-glitch 0.2s ease-in-out 3;
+}
+
+/* 3. HEADER & SCANNER */
+.card-header {
+  background: rgba(255, 0, 51, 0.1);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 0, 51, 0.3);
+}
+
+.header-dot {
+  width: 8px;
+  height: 8px;
+  background: #ff0033;
+  margin-right: 15px;
+  animation: pulse 1s infinite;
+}
+
+.header-title {
+  color: #ff0033;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.header-id {
+  margin-left: auto;
+  color: rgba(255, 0, 51, 0.5);
+  font-size: 0.7rem;
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #ff0033;
+  box-shadow: 0 0 15px #ff0033;
+  z-index: 10;
+  animation: scanMove 4s linear infinite;
+  opacity: 0.5;
+}
+
+/* 4. TEXT CONTENT AREA */
+.text-window {
+  padding: 40px;
+  background: linear-gradient(180deg, rgba(20,0,0,1) 0%, rgba(0,0,0,1) 100%);
+  min-height: 220px;
+}
+
+.cyber-text {
+  font-family: 'JetBrains Mono', monospace;
+  color: #ff4d4d;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin: 0;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.3);
+}
+
+.cursor-block {
+  display: inline-block;
+  color: #ff0033;
+  margin-left: 4px;
+  animation: blink 0.8s step-end infinite;
+}
+
+/* 5. ACTION AREA & UPDATED BUTTON */
+.card-footer {
+  padding: 30px 40px;
+  border-top: 1px solid rgba(255, 0, 51, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cyber-btn {
+  background: transparent;
+  border: 1px solid #ff0033;
+  color: #ff0033;
+  padding: 15px;
+  font-family: 'Orbitron';
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 4px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  text-transform: uppercase;
+  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+}
+
+/* HOVER STATE: Darker Red Implementation */
+.cyber-btn:hover {
+  background: #800000; /* Deep Dark Red */
+  border-color: #660000;
+  color: #ffffff;
+  letter-spacing: 5px;
+  box-shadow: 0 0 30px rgba(128, 0, 0, 0.6);
+  filter: none; /* Removed brightness(5) to keep it dark */
+}
+
+/* 6. DECORATIVE ACCENTS */
+.corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border: 2px solid #ff0033;
+  z-index: 11;
+}
+
+.top-left { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.top-right { top: -2px; right: -2px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: -2px; left: -2px; border-right: none; border-top: none; }
+.bottom-right { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+/* 7. ANIMATIONS */
+@keyframes scanMove {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@keyframes cardAppear {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes card-glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.cyber-popup-overlay {
+  background: rgba(0, 0, 0, 0.85); /* Slightly transparent so rain is faintly visible behind it */
+  backdrop-filter: brightness(0.5); /* Dims the rain when the popup appears */
+  transition: backdrop-filter 0.5s ease;
+}

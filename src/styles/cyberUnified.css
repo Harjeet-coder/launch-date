@@ -1,0 +1,61 @@
+.cyber-unified-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+/* CANVAS */
+.cyber-unified-layer canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* POPUP CARD */
+.cyber-popup-card {
+  pointer-events: auto;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(90vw, 520px);
+  padding: 3.5rem;
+
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid #ff0033;
+  box-shadow: 0 0 45px rgba(255, 0, 51, 0.6);
+
+  text-align: center;
+  font-family: "Oxanium", sans-serif;
+}
+
+/* TITLE */
+.hud-title {
+  color: #00ffe0;
+  letter-spacing: 0.4em;
+  margin-bottom: 2rem;
+}
+
+/* TEXT */
+.hud-line {
+  color: #ffffff;
+  font-family: "JetBrains Mono", monospace;
+  margin: 1rem 0;
+}
+
+.hud-line.danger {
+  color: #ff0033;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+/* BUTTON */
+.cyber-btn {
+  margin-top: 2rem;
+  padding: 1rem 3rem;
+  background: transparent;
+  border: 2px solid #00ffe0;
+  color: #00ffe0;
+  font-weight: bold;
+  letter-spacing: 0.3em;
+  cursor: pointer;
+}
