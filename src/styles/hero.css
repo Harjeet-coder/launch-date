@@ -14,6 +14,22 @@
   top:0%;
 }
 
+/* New wrapper styles to preserve desktop stacking */
+.hero-top-brand {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  padding-top: 3vh;
+}
+
+.hero-main-logo {
+  position: relative;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+}
+
 /* ---------------- PARTICLES ---------------- */
 .hero-particles {
   position: absolute;

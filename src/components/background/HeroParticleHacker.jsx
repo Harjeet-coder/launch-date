@@ -28,7 +28,10 @@ export default function HeroParticleHacker() {
       const temp = document.createElement("canvas");
       const tctx = temp.getContext("2d");
 
-      const scale = Math.min(width / img.width, height / img.height) * 0.65;
+      const baseScale = Math.min(width / img.width, height / img.height);
+      // Make particles noticeably larger on mobile; keep desktop scale smaller
+      const multiplier = window.innerWidth <= 767 ? 1.2 : 0.65; // larger on mobile
+      const scale = baseScale * multiplier;
       const iw = img.width * scale;
       const ih = img.height * scale;
       const ix = (width - iw) / 2;

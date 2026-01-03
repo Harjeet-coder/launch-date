@@ -60,7 +60,7 @@ export default function Events() {
         </div>
 
         {/* ================= WORKSHOP ================= */}
-        <div className="event-card event-card-workshop">
+        <div className="event-card event-card-technical">
           <div className="event-card-visual">
             <img
               src={workshopImage}

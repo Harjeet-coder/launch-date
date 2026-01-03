@@ -61,10 +61,10 @@ export default function App() {
       
       {/* 🌧️ NUMBER RAIN (FULLSCREEN) */}
       
-      {/*showCyberMode && <NumberRainOverlay />}
+      {showCyberMode && <NumberRainOverlay />}
 
       {/* 🚨 CYBER ALERT POPUP (ON TOP) */}
-      {/*showCyberMode && <CyberAlertPopup />*/}
+      {showCyberMode && <CyberAlertPopup />}
     </>
   );
 }

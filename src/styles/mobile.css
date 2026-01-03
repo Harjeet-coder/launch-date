@@ -1,0 +1,158 @@
+/* Mobile-specific responsive tweaks (applies up to 767px) */
+
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding-inline: 1rem;
+    max-width: 100%;
+  }
+
+  section {
+    padding: 2rem 4%;
+  }
+
+  .navbar {
+    padding: 0.75rem 1rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .navbar ul {
+    display: none; /* hide large nav on small screens */
+  }
+
+  .tech-worker-3d {
+    height: 260px;
+  }
+
+  .cyber-popup-card {
+    width: 95vw;
+    max-width: 500px;
+  }
+
+  .footer {
+    padding: 1.5rem 4%;
+    text-align: center;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .hero, .intro {
+    padding: 1.5rem 4%;
+  }
+
+  /* HERO: make particle background larger and reposition for mobile */
+  .hero {
+    min-height: 80vh;
+  }
+
+  /* On mobile, keep particles in normal flow so they sit above the logo */
+  .hero-particles {
+    position: relative !important;
+    inset: auto !important;
+    bottom: auto !important;
+    height: 260px; /* fixed visible particle area */
+    width: 100%;
+    display: block;
+    z-index: 2;
+  }
+
+  .hero-particle-hacker {
+    width: 100% !important;
+    height: 100% !important;
+    display: block;
+  }
+
+  /* Place the main logo below the particle area (remove large top offset) */
+  .hero-content {
+    z-index: 3;
+    padding-top: 0.75rem !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-brand-image {
+    position: relative !important;
+    top: auto !important;
+    margin-top: 0.25rem !important;
+    width: clamp(180px, 46vw, 420px) !important;
+  }
+
+  /* Reduce space between hero and events on mobile */
+  .hero-events {
+    margin-top: 8vh !important;
+  }
+
+  .events-section {
+    margin-top: 6vh !important; /* override large desktop margin */
+    padding: 1.2rem 4%;
+  }
+
+  .events-title {
+    margin-top: 1.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  /* Slightly smaller alert popup on mobile */
+  .cyber-popup-card {
+    width: min(86vw, 620px) !important;
+  }
+
+  .text-window {
+    padding: 28px !important;
+    min-height: 180px !important;
+  }
+
+  .card-footer {
+    padding: 18px 24px !important;
+  }
+
+  .cyber-btn {
+    padding: 12px !important;
+    font-size: 0.95rem !important;
+  }
+
+  /* Reduce alert popup font-size on mobile for readability */
+  .cyber-text {
+    font-size: 1rem !important;
+  }
+
+  /* EVENTS / CARDS: tighter spacing on mobile */
+  .events-grid {
+    gap: 2rem;
+  }
+
+  .event-card {
+    padding: 2rem 1.2rem;
+    min-height: auto;
+    border-radius: 16px;
+  }
+
+  .event-card-visual {
+    height: 200px;
+    margin-bottom: 1rem;
+  }
+
+  .event-tech-image {
+    max-width: 260px;
+  }
+
+  .event-card-content {
+    padding: 0.25rem 0;
+  }
+
+  /* GLOBAL: ensure sections stack neatly on mobile */
+  section {
+    padding: 1.6rem 4%;
+  }
+
+}
