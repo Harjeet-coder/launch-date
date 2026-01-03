@@ -14,7 +14,7 @@ export default function Header() {
 
         {/* CENTER */}
         <nav className="header-nav">
-          <a href="#home" className="nav-link active">HEADER</a>
+          <a href="#home" className="nav-link active"></a>
           
         </nav>
 
