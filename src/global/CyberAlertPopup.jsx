@@ -103,9 +103,10 @@ export default function CyberAlertPopup() {
               <pre className="cyber-text">{typed}<span className="cursor-block">█</span></pre>
             </div>
             <div className="card-footer">
-              <button className="cyber-btn" onClick={() => alertSfx.current?.pause()}>
-                VERIFY IDENTITY
-              </button>
+            <button className="cyber-btn" onClick={() => alertSfx.current?.pause()}>
+  <span className="cyber-btn__text">VERIFY IDENTITY</span>
+  <span className="cyber-btn__glitch"></span>
+</button>
             </div>
             {/* Corner Decorative Elements */}
             <div className="corner top-left"></div>

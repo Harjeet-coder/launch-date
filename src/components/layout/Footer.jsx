@@ -56,8 +56,7 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-copy">
-          <span>COPYRIGHT © HACKERZ 2025</span>
-          <span className="powered-by">POWERED BY RIZZSPACE</span>
+          <span>COPYRIGHT © HACKERZ 2026</span>
         </div>
         <div className="footer-socials">
           <i className="fa-envelope"></i>

@@ -99,29 +99,94 @@
 }
 
 .cyber-btn {
-  background: transparent;
-  border: 1px solid #ff0033;
-  color: #ff0033;
-  padding: 15px;
-  font-family: 'Orbitron';
-  font-weight: 700;
-  font-size: 1rem;
-  letter-spacing: 4px;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  --glitch-color: #ff0033;
+  --bg-color: #000;
+  --hover-bg: #400008; /* Very dark crimson */
+  
   position: relative;
+  padding: 18px 45px;
+  background: var(--bg-color);
+  color: var(--glitch-color);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+  border: none;
+  cursor: pointer;
   text-transform: uppercase;
-  clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  outline: none;
+  
+  /* Precision clipping */
+  clip-path: polygon(0 20%, 5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%);
+  transition: all 0.2s;
 }
 
-/* HOVER STATE: Darker Red Implementation */
+/* The Glowing Border Trace */
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--glitch-color);
+  clip-path: polygon(
+    0 20%, 5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%, 
+    /* Inner cutout to create the border look */
+    2% 22%, 2% 98%, 94% 98%, 98% 82%, 98% 2%, 6% 2%
+  );
+  z-index: 1;
+}
+
+/* The Pulsing Background */
+.cyber-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--hover-bg);
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.3s;
+}
+
+/* HOVER EFFECTS */
 .cyber-btn:hover {
-  background: #800000; /* Deep Dark Red */
-  border-color: #660000;
-  color: #ffffff;
-  letter-spacing: 5px;
-  box-shadow: 0 0 30px rgba(128, 0, 0, 0.6);
-  filter: none; /* Removed brightness(5) to keep it dark */
+  color: #fff;
+  text-shadow: 0 0 8px #ff0033;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px -10px rgba(255, 0, 51, 0.5);
+}
+
+.cyber-btn:hover::after {
+  opacity: 1;
+  /* Adds a scanning line animation */
+  background: linear-gradient(
+    transparent 0%,
+    rgba(255, 0, 51, 0.2) 50%,
+    transparent 100%
+  );
+  background-size: 100% 4px;
+  animation: scan 1s linear infinite;
+}
+
+.cyber-btn:hover::before {
+  animation: glitch-border 0.4s steps(2) infinite;
+}
+
+/* ANIMATIONS */
+@keyframes scan {
+  from { background-position: 0 0; }
+  to { background-position: 0 100%; }
+}
+
+@keyframes glitch-border {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; clip-path: polygon(0 15%, 8% 0, 100% 0, 100% 85%, 92% 100%, 0 100%); }
+  100% { opacity: 1; }
+}
+
+.cyber-btn:active {
+  transform: translateY(0) scale(0.98);
 }
 
 /* 6. DECORATIVE ACCENTS */
