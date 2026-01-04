@@ -108,7 +108,7 @@
   background: var(--bg-color);
   color: var(--glitch-color);
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.5rem;
+  font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 5px;
   border: none;
@@ -119,6 +119,9 @@
   /* Precision clipping */
   clip-path: polygon(0 20%, 5% 0, 100% 0, 100% 80%, 95% 100%, 0 100%);
   transition: all 0.2s;
+  text-shadow: 
+    0 0 5px var(--glitch-color), 
+    0 0 10px rgba(255, 0, 51, 0.5);
 }
 
 /* The Glowing Border Trace */
