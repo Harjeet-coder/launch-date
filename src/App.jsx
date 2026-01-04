@@ -43,7 +43,7 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCyberMode(true);
-    }, 7000); // ⏱️ 7 seconds after page load
+    }, 5000); // ⏱️ 7 seconds after page load
 
     return () => clearTimeout(timer);
   }, []);

@@ -61,7 +61,7 @@ export default function CyberAlertPopup() {
     // 3. Phase: 6 seconds of pure rain before the card appears
     const startTimeout = setTimeout(() => {
       setShowPopup(true);
-    }, 6000);
+    }, 7000);
 
     return () => {
       clearTimeout(startTimeout);
@@ -135,7 +135,7 @@ export default function CyberAlertPopup() {
                   window.location.href = "https://access-gateway.vercel.app";
                 }}
               >
-                <span className="cyber-btn__text">VERIFY IDENTITY</span>
+                <span className="cyber-btn__text">CLICK TO VERIFY IDENTITY</span>
                 <span className="cyber-btn__glitch"></span>
               </button>
             </div>
