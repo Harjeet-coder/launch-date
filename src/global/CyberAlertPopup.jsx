@@ -17,14 +17,32 @@ export default function CyberAlertPopup() {
   const isFinished = useRef(false);
 
   const alertSfx = useRef(null);
+  const glitchSfx = useRef(null);
 
   useEffect(() => {
     // 1. Create Audio immediately
     const audio = new Audio("/sounds/alert.wav");
     audio.volume = 0.5;
-    audio.loop = true; // Native hardware looping for zero gap
+    audio.loop = false; // play once only
     audio.preload = "auto";
     alertSfx.current = audio;
+
+    // Play glitch sound once immediately after alert finishes
+    const onAlertEnded = () => {
+      try {
+        const g = new Audio("/sounds/glitch.wav");
+        g.volume = 0.6;
+        g.loop = false;
+        g.preload = "auto";
+        glitchSfx.current = g;
+        g.play().catch(() => {
+          // ignore play errors (browser blocking) — it will play when unlocked
+        });
+      } catch (e) {
+        // fail silently
+      }
+    };
+    audio.addEventListener("ended", onAlertEnded);
 
     // 2. The "Aggressive Play" Logic
     // This attempts to play the sound every 200ms. 
@@ -48,8 +66,15 @@ export default function CyberAlertPopup() {
     return () => {
       clearTimeout(startTimeout);
       clearInterval(autoPlayInterval);
+      audio.removeEventListener("ended", onAlertEnded);
       audio.pause();
       audio.src = "";
+      if (glitchSfx.current) {
+        try {
+          glitchSfx.current.pause();
+          glitchSfx.current.src = "";
+        } catch (e) {}
+      }
     };
   }, []);
 

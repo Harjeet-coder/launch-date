@@ -1,8 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/numberRain.css";
 
 export default function NumberRainOverlay() {
   const canvasRef = useRef(null);
+  const [showTap, setShowTap] = useState(true);
+  const [fading, setFading] = useState(false);
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -51,14 +53,23 @@ export default function NumberRainOverlay() {
 
     window.addEventListener("resize", onResize);
 
+    // Show the tap-to-enable audio hint, fade it out over 3s and then remove it
+    const startFade = setTimeout(() => setFading(true), 100);
+    const removeTap = setTimeout(() => setShowTap(false), 3100);
+
     return () => {
       clearInterval(interval);
       window.removeEventListener("resize", onResize);
+      clearTimeout(startFade);
+      clearTimeout(removeTap);
     };
   }, []);
 
   return (
     <div className="number-rain-overlay">
+      {showTap && (
+        <div className={`tap-audio ${fading ? "fade" : ""}`}>Tap screen to enable audio</div>
+      )}
       <canvas ref={canvasRef} />
     </div>
   );
